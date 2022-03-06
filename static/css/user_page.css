@@ -1,0 +1,42 @@
+#user_photo{
+    background-color: rgba(238, 238, 238, 0); 
+    color: #ffffff;
+
+    float:left;
+    width: 25%;
+    min-height: 400px;
+
+    padding: 20px;
+    
+}
+
+#user_content{
+    background-color: rgba(238, 238, 238, 0); 
+    color: #ffffff;
+
+    float:right;
+    width: 65%;
+    min-height: 400px;
+
+    padding: 20px;
+    
+}
+#header_left{
+    background-color: rgb(7, 146, 155); 
+    width: 15px;
+    height: 15px;
+    margin: 10px;
+    float:left;
+}
+#header_middle{
+    height: 20px;
+    font-size: 24px;
+    float:left;
+}
+#header_right{
+    background-color: rgb(7, 146, 155); 
+    min-width: 60%;
+    height: 15px;
+    margin: 10px;
+    float:left;
+}

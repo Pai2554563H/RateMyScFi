@@ -1,0 +1,33 @@
+{% extends 'user/base.html' %}
+{% load staticfiles %}
+
+{% block css_block %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/user_page.css' %}">
+{% endblock %}
+
+{% block title_block %}
+    Movie
+{% endblock %}
+
+
+{% block body_block %}
+
+<div id="user_photo">
+                    
+    <img src="{% static 'images/test.jpg' %}" alt="Picture of test" style="width:100%;"/><br />
+    
+</div>
+<div id="user_content">
+    <div id="user_header">
+        <div id="header_left"></div>
+        <div id="header_middle">Rating History</div>
+        <div id="header_right"></div>
+    </div>
+
+    <div style="clear:both">
+        information details 
+        
+    </div>
+</div>
+
+{% endblock %}
