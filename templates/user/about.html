@@ -1,6 +1,8 @@
 {% extends 'user/base.html' %}
 {% load staticfiles %}
-
+{% block css_block %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/about.css' %}">
+{% endblock %}
 
 {% block title_block %}
     About
@@ -8,9 +10,16 @@
 
 
 {% block body_block %}
+<div id="about_content">
     <h1>About</h1>
 
     <div>
         about page <br />
     </div>
+
+    <div style="width:200px; height:200px;">
+        <img src="{% static 'images/test.jpg' %}" alt="Picture of test" style="width:100%;"/><br />
+    </div>       
+</div>
+    
 {% endblock %}
