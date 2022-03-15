@@ -12,14 +12,31 @@
         </title>
 
         <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+        
+        {% block css_block %}
+        {% endblock %}
     </head>
     
-    <body>
+    <body style="background-color:#222831">
 
         <div id="header">
-            <h1>project</h1>
-        </div>
+            <div id="header_1">
+                <h1>Rate</h1>
+                <h1>My Sc-Fi</h1>
+            </div>
 
+            <div id="header_2">
+                <div id="authentication">
+                    login/sign up
+                    
+                </div>
+
+<!--                 <div id="menu">
+                    <button class="button" type="button" onclick="location.href= '{% url 'homepage' %}'">MOVIES</button>
+                    <button class="button" type="button" onclick="location.href= ''">FORUM</button>
+                    <button class="button" type="button" onclick="location.href= '{% url 'about' %}'">ABOUT</button>
+                </div>
+            </div> -->
         <div id="menu">
             <button class="button button1" type="button" onclick="location.href= '{% url 'homepage' %}'">Homepage</button>
 {#            <button class="button button2" type="button" onclick="location.href= '{% url 'user:forum' %}'">Forum</button>#}
@@ -27,14 +44,12 @@
             <button class="button button4" type="button" onclick="location.href= '{% url 'movie:allmovies' %}'">Movies</button>
 
         </div>
-        
-        <hr />
 
         <div id ="main_body">
-            <h1>main part</h1>
-            {% block body_block %}
-            
-            {% endblock %}
+            <div id="content">
+                {% block body_block %}
+                {% endblock %}
+            </div>
         </div>
         
     </body>

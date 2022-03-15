@@ -1,0 +1,10 @@
+#register_content{
+    background-color: rgb(238, 238, 238); 
+    color: #222831;
+
+    margin: auto;
+    width: 40%;
+    min-height: 400px;
+
+    padding: 20px;
+}

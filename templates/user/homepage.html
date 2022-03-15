@@ -1,6 +1,9 @@
 {% extends 'user/base.html' %}
 {% load staticfiles %}
 
+{% block css_block %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
+{% endblock %}
 
 {% block title_block %}
     Homepage
@@ -8,10 +11,18 @@
 
 
 {% block body_block %}
-    <h1>Movies</h1>
 
-    <div>
-        <strong>{{ boldmessage }}</strong><br />
-{#        <img src="{% static 'images/test.jpg' %}" alt="Picture of test" /><br />#}
+    <div id="top_10">
+        TOP MOVIES
+        <hr>
+            <!-- show top 10 here -->
+    </div>
+
+    <div id="movie_list">
+        OPENING THIS WEEK
+        <hr>
+        <!-- show movies here -->
+
     </div>
 {% endblock %}
+

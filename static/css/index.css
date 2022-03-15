@@ -1,0 +1,22 @@
+/* homepage part */
+#top_10{
+    background-color: rgb(238, 238, 238); 
+    color: #222831;
+
+    float:left;
+    width: 25%;
+    min-height: 400px;
+
+    padding: 20px;
+}
+
+#movie_list{
+    background-color: rgb(238, 238, 238); 
+    color: #222831;
+
+    float:right;
+    width: 65%;
+    min-height: 400px;
+
+    padding: 20px;
+}
