@@ -1,0 +1,39 @@
+{% extends 'user/base.html' %}
+{% load staticfiles %}
+
+
+{% block title_block %}
+    Movies
+{% endblock %}
+
+
+
+
+{% block body_block %}
+    <h1>Movies from A to Z:</h1>
+    <a href="{% url 'movie:addmovie' %}">Add movie</a> to the RateMySciFi list
+    <div>
+        {% if movies %}
+            <ol>
+            {% for movie in movies %}
+                <strong>
+                    <a href="{% url 'movie:singlemovie' movie.slug %}">{{ movie.title }} </a>
+                </strong> <br />
+                    <img src="{{ MEDIA_URL }}{{ movie.poster }}"
+                    width="100"
+                    height="150"
+                    alt="poster"/> <br />
+                    <i>Year:</i> {{ movie.year }} <br />
+                    <i>Director:</i> {{ movie.director }} <br />
+                    <i>Rating:</i> {{ movie.rating }} <br />
+                    <i>Synopsis:</i> {{ movie.description }} <br />
+                    <br />
+            {% endfor %}
+            </ol>
+        {% else %}
+            <strong>There are no movies in the database yet.</strong>
+        {% endif %}
+    </div>
+
+
+{% endblock %}

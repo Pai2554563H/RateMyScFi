@@ -31,12 +31,18 @@
                     
                 </div>
 
-                <div id="menu">
+<!--                 <div id="menu">
                     <button class="button" type="button" onclick="location.href= '{% url 'homepage' %}'">MOVIES</button>
                     <button class="button" type="button" onclick="location.href= ''">FORUM</button>
                     <button class="button" type="button" onclick="location.href= '{% url 'about' %}'">ABOUT</button>
                 </div>
-            </div>
+            </div> -->
+        <div id="menu">
+            <button class="button button1" type="button" onclick="location.href= '{% url 'homepage' %}'">Homepage</button>
+{#            <button class="button button2" type="button" onclick="location.href= '{% url 'user:forum' %}'">Forum</button>#}
+            <button class="button button3" type="button" onclick="location.href= '{% url 'about' %}'">About</button>
+            <button class="button button4" type="button" onclick="location.href= '{% url 'movie:allmovies' %}'">Movies</button>
+
         </div>
 
         <div id ="main_body">
