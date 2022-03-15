@@ -1,7 +1,7 @@
 from turtle import title
 from django.http import HttpResponse
-from django.shortcuts import render
-
+from django.shortcuts import render, redirect
+from movie.forms import MovieForm
 from movie.models import Movie
 
 
@@ -32,5 +32,21 @@ def singlemovie(request, singlemovie_name_slug):
 
 # @login_required
 def add_movie(request):
-    response = render(request, 'movie/addmovie.html')
-    return response
+    form = MovieForm()
+
+    if request.method == 'POST':
+        form = MovieForm(request.POST, request.FILES or None)
+        
+
+        if form.is_valid():
+
+            # if 'poster' in request.FILES:
+            #     Movie.poster = request.FILES['poster']
+
+            form.save(commit=True)
+            return redirect('/movie/allmovies')
+        else:
+            print(form.errors)
+
+    return render(request, 'movie/addmovie.html', {'form': form})
+     

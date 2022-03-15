@@ -17,6 +17,8 @@ from django.contrib import admin
 from django.urls import path
 from django.urls import include
 from user import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 
 
@@ -27,4 +29,4 @@ urlpatterns = [
     path('movie/', include('movie.urls')),
     path('user/', include('user.urls')),
     path('forum/', include('forum.urls')),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

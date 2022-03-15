@@ -9,7 +9,8 @@ class Movie(models.Model):
     director = models.CharField(max_length=128)
     rating = models.FloatField(default=0)
     description = models.TextField(default="")
-    slug = models.SlugField(default="")
+    poster = models.ImageField(upload_to="posters", blank=True)
+    slug = models.SlugField(default="", unique=True)
 
 
     def save(self, *args, **kwargs):
