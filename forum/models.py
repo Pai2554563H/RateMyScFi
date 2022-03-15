@@ -9,9 +9,10 @@ class Forum(models.Model):
 
 class Post(models.Model):
     author = models.ForeignKey('user.User', on_delete=models.CASCADE, )
+    title = models.TextField(default='')
     date = models.DateField(auto_now=False, auto_now_add=True)
     content = models.TextField()
-    topic = models.TextField()
+    # topic = models.TextField()
 
 
 class PostReply(models.Model):

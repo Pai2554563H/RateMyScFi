@@ -1,8 +1,7 @@
 from django.urls import path
-from movie import views
+from forum import views
 
 
 app_name = 'forum'
-urlpatterns = [
-
+urlpatterns = [path('', views.ForumView.as_view(), name='forum'),
 ]
