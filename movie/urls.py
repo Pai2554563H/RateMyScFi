@@ -9,4 +9,4 @@ urlpatterns = [
     path('allmovies', views.movielist, name='allmovies'),
     path('addmovie', views.add_movie, name='addmovie'),
     path('singlemovie/<slug:singlemovie_name_slug>/', views.singlemovie, name='singlemovie'),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] 

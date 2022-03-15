@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from movie.forms import MovieForm
 from movie.models import Movie
+from django.conf import settings
 
 
 
@@ -13,7 +14,7 @@ from movie.models import Movie
 
 def movielist(request):
     movie_list = Movie.objects.order_by('title')
-    context_dict = {'movies': movie_list}
+    context_dict = {'movies': movie_list, 'MEDIA_URL':settings.MEDIA_URL}
 
     response = render(request, 'movie/allmovies.html', context=context_dict)
 
@@ -21,7 +22,7 @@ def movielist(request):
 
 def singlemovie(request, singlemovie_name_slug):
     current_movie = Movie.objects.get(slug=singlemovie_name_slug)
-    context_dict = {'movie': current_movie}
+    context_dict = {'movie': current_movie, 'MEDIA_URL':settings.MEDIA_URL}
 
 
     response = render(request, 'movie/singlemovie.html', context=context_dict)
