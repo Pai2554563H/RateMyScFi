@@ -3,6 +3,7 @@ from django.views import View
 from django.views.generic import ListView
 
 from forum.models import Post
+from forum.models import PostReply
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
@@ -46,17 +47,25 @@ class ForumView(View):
         pass
 
 
-def forum(request):
-    post_list = Post.objects.all().values()
-    # context_dict = {}
-    # context_dict['categories'] = post_list
-    return render(request, 'forum/forum.html')
+class PostView(View):
+    def get(self, request, post_id):
+        context_dict = {}
+        post = Post.objects.get(id=post_id)
+        replies = PostReply.objects.filter(post_id=post.id)
+        context_dict['replies'] = replies
+        context_dict['post'] = post
+        return render(request, 'forum/post.html', context=context_dict)
+
+
+    # def post(self, request):
+    #     pass
+
 
 
 # @login_required
-def addPost(request):
-    return render(request, 'forum/forum.html')
-
-
-def showPost(request):
-    return render(request, 'forum/forum.html')
+# def addPost(request):
+#     return render(request, 'forum/forum.html')
+#
+#
+# def showPost(request):
+#     return render(request, 'forum/forum.html')

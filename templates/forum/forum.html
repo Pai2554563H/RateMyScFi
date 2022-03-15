@@ -16,7 +16,7 @@
                 <ul>
                 {% for post in posts %}
                     <li>
-                        {{ post.title }}
+                        <a href="/forum/{{ post.id }}">{{ post.title }}</a>
                     </li>
                 {% endfor %}
             </ul>
