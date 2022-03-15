@@ -1,0 +1,29 @@
+{% extends 'user/base.html' %}
+{% load staticfiles %}
+
+
+{% block title_block %}
+    Add Movie
+{% endblock %}
+
+{% block body_block %}
+    <h1>Add a Movie to the RateMySciFi list</h1>
+    <div>
+        <form id="movieform" method="post" action="{% url 'movie:addmovie' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% for hidden in form.hidden_fields %}
+                {{ hidden }} 
+            {% endfor %}
+            {% for field in form.visible_fields %}
+                {{ field.errors }} <br />
+                {{ field.help_text }} <br />
+                {{ field }} <br />
+            {% endfor %} <br />
+            <input type="submit" name="submit" value="Add Movie" />
+        </form>
+    </div>
+
+    <a href="{% url 'movie:allmovies' %}">Return</a> to movie list. <br />
+
+
+{% endblock %}

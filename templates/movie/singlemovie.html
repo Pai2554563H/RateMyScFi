@@ -1,0 +1,31 @@
+{% extends 'user/base.html' %}
+{% load staticfiles %}
+
+
+{% block title_block %}
+    {% if movie %}
+        {{ movie.title }}
+    {% else %}
+        Unknown movie
+    {% endif %}
+{% endblock %}
+
+{% block body_block %}
+
+    <div>
+        <img src="{{ MEDIA_URL }}{{ movie.poster }}"
+        width="220"
+        height="300"
+        alt="poster"/> <br />
+        
+        <i>Year:</i> {{ movie.year }} <br />
+        <i>Director:</i> {{ movie.director }} <br />
+        <i>Rating:</i> {{ movie.rating }} <br />
+        <i>Synopsis:</i> {{ movie.description }} <br />
+        <br />
+
+
+        <a href="{% url 'movie:allmovies' %}">Return</a> to movie list. <br />
+    </div>
+
+{% endblock %}
