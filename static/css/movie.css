@@ -1,43 +1,67 @@
-#movie_poster{
+.movie_poster{
     background-color: rgba(238, 238, 238, 0); 
     color: #ffffff;
 
     float:left;
     width: 25%;
-    min-height: 400px;
 
     padding: 20px;
     
 }
 
-#movie_info{
+.movie_info{
     background-color: rgba(238, 238, 238, 0); 
     color: #ffffff;
-
     float:right;
     width: 65%;
-    min-height: 400px;
-
     padding: 20px;
-    
 }
 
-#header_left{
+.add_movie_info{
+    background-color: rgba(238, 238, 238, 0); 
+    color: #ffffff;
+    text-align: center;
+    font-weight: bold;
+    width: 100%;
+    padding: 20px;
+}
+
+.container{
+    display: flex;
+    width: 100%;
+}
+
+.background-blue{
+    background: rgb(7, 146, 155); 
+}
+
+.link {
+    color: rgb(0, 0, 0);
+}
+
+.header_left{
     background-color: rgb(7, 146, 155); 
     width: 15px;
     height: 15px;
     margin: 10px;
     float:left;
 }
-#header_middle{
-    height: 20px;
-    font-size: 24px;
-    float:left;
-}
-#header_right{
+.header_middle{
     background-color: rgb(7, 146, 155); 
-    min-width: 60%;
+    height: 30px;
+    font-size: 24px;
+    text-align: center;
+    float:center;
+}
+.header_right{
+    background-color: rgb(7, 146, 155); 
     height: 15px;
     margin: 10px;
-    float:left;
+    float:right;
+    font-weight: bold;
+    border-radius: 25px;
+    width: 400px;
+    text-align: center;
 }
+
+

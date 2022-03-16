@@ -1,14 +1,17 @@
 {% extends 'user/base.html' %}
 {% load staticfiles %}
-
+{% block css_block %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/movie.css' %}">
+{% endblock %}
 
 {% block title_block %}
     Add Movie
 {% endblock %}
 
 {% block body_block %}
-    <h1>Add a Movie to the RateMySciFi list</h1>
-    <div>
+    <h1 class="header_middle">Add a Movie to the RateMySciFi Database</h1>
+    <div class="container">
+    <div class="add_movie_info">
         <form id="movieform" method="post" action="{% url 'movie:addmovie' %}" enctype="multipart/form-data">
             {% csrf_token %}
             {% for hidden in form.hidden_fields %}
@@ -19,11 +22,12 @@
                 {{ field.help_text }} <br />
                 {{ field }} <br />
             {% endfor %} <br />
-            <input type="submit" name="submit" value="Add Movie" />
+            <input  type="submit" name="submit" value="Add Movie" />
         </form>
     </div>
-
-    <a href="{% url 'movie:allmovies' %}">Return</a> to movie list. <br />
+    </div>
+    <div class="header_right">
+    <a class="link" href="{% url 'movie:allmovies' %}">Return</a> to movie list.</div>
 
 
 {% endblock %}
