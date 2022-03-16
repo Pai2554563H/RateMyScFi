@@ -1,0 +1,38 @@
+{% extends 'user/base.html' %}
+{% load staticfiles %}
+
+
+{% block title_block %}
+    Forum
+{% endblock %}
+
+
+{% block body_block %}
+    <h1>Discussion Forum</h1>
+
+    <div>
+        <div>
+            {% if post %}
+                <div>
+                <h1>{{ post.title }}</h1>
+                </div>
+                {{ post.date }}
+                {{ post.author }}
+                {{ post.content }}
+
+                <ul>
+                {% for reply in replies %}
+                    <li>
+                        {{ reply.date }}
+                        {{ reply.author }}
+                        {{ reply.content }}
+                    </li>
+                {% endfor %}
+            </ul>
+
+            {% else %}
+            <strong>The specified post does not exist.</strong>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

@@ -7,7 +7,7 @@ class Movie(models.Model):
     year = models.IntegerField(default=2000)
     director = models.CharField(max_length=128)
     rating = models.FloatField(default=0)
-    description = models.TextField()
+    description = models.TextField(default='')
 
 
 class Review(models.Model):
