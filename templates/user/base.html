@@ -31,9 +31,9 @@
                     
                 </div>
 
-                <div id="menu">
+                <div id="menu">                 
                     <button class="button" type="button" onclick="location.href= '{% url 'homepage' %}'">HOME</button>
-                    <button class="button" type="button" onclick="location.href= ''">FORUM</button>
+                    <button class="button" type="button" onclick="location.href= '{% url 'forum:forum' %}'">FORUM</button>
                     <button class="button" type="button" onclick="location.href= '{% url 'about' %}'">ABOUT</button>
                     <button class="button" type="button" onclick="location.href= '{% url 'movie:allmovies' %}'">MOVIES</button>
                 </div>

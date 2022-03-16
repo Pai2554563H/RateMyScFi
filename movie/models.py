@@ -8,6 +8,7 @@ class Movie(models.Model):
     year = models.IntegerField(default=2000)
     director = models.CharField(max_length=128)
     rating = models.FloatField(default=0)
+
     description = models.TextField(default="")
     poster = models.ImageField(upload_to="posters", blank=True)
     slug = models.SlugField(default="", unique=True)
@@ -19,7 +20,6 @@ class Movie(models.Model):
 
     def __str__(self):
         return self.title
-
 
 class Review(models.Model):
     movie = models.ForeignKey('Movie', on_delete=models.CASCADE, )
