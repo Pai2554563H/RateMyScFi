@@ -27,8 +27,15 @@
 
             <div id="header_2">
                 <div id="authentication">
-                    login/sign up
-                    
+                    <ul style="display:flex;justify-content: space-around;width: 200px;">
+                    {% if user.is_authenticated %}
+                        <li><a href="{% url 'user:profile' %}" style="color: white">Profile</a></li>
+                    {% else %}
+                        <li><a href="{% url 'user:register' %}" style="color: white">SignUp</a></li>
+                        <li><a href="{% url 'user:login' %}" style="color: white">Login</a></li>
+                    {% endif %}
+
+                    </ul>
                 </div>
 
                 <div id="menu">                 
@@ -46,6 +53,6 @@
                 {% endblock %}
             </div>
         </div>
-        
+
     </body>
 </html>

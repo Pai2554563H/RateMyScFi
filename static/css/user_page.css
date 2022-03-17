@@ -3,7 +3,7 @@
     color: #ffffff;
 
     float:left;
-    width: 25%;
+    width: 15%;
     min-height: 400px;
 
     padding: 20px;
@@ -14,7 +14,7 @@
     background-color: rgba(238, 238, 238, 0); 
     color: #ffffff;
 
-    float:right;
+    float:left;
     width: 65%;
     min-height: 400px;
 
