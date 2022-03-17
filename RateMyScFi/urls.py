@@ -19,6 +19,9 @@ from django.urls import include
 from django.conf import settings
 from django.conf.urls.static import static
 from user import views
+from django.conf import settings
+from django.conf.urls.static import static
+
 
 
 urlpatterns = [
@@ -26,7 +29,6 @@ urlpatterns = [
     path('', views.homepage, name='homepage'),
     path('about/', views.about, name='about'),
     path('movie/', include('movie.urls')),
-    path('usr/', include('user.urls')),
+    path('user/', include('user.urls')),
     path('forum/', include('forum.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-

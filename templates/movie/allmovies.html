@@ -1,0 +1,44 @@
+{% extends 'user/base.html' %}
+{% load staticfiles %}
+{% block css_block %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/movie.css' %}">
+{% endblock %}
+
+
+{% block title_block %}
+    Movies
+{% endblock %}
+
+
+
+{% block body_block %}
+    <div class="header_right"><a class="link" href="{% url 'movie:addmovie' %}">Add movie</a> to the RateMySciFi Database</div><br /><br />
+    <div class="header_middle"><strong>Movies from A to Z:</strong></div> 
+        {% if movies %}
+            {% for movie in movies %}
+            <div class="container background-blue">
+                <div class="movie_poster">
+                        <img src="{{ MEDIA_URL }}{{ movie.poster }}"
+                        width="100"
+                        height="150"
+                        alt="poster"/> <br />
+
+                </div>
+                <div class="movie_info">
+                    <p>
+                        <a class="link" href="{% url 'movie:singlemovie' movie.slug %}">{{ movie.title }} </a>
+                    <br />
+                    <i>Year:</i> {{ movie.year }} <br />
+                    <i>Director:</i> {{ movie.director }} <br />
+                    <i>Rating:</i> {{ movie.rating }} <br />
+                    <i>Synopsis:</i> {{ movie.description }} <br />
+                    <br /> </p> 
+                </div>
+            </div>
+            {% endfor %}
+        {% else %}
+            <div id="header_middle">There are no movies in the database yet.</div>
+        {% endif %}
+
+
+{% endblock %}

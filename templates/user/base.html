@@ -22,7 +22,7 @@
         <div id="header">
             <div id="header_1">
                 <h1>Rate</h1>
-                <h1>My Sc-Fi</h1>
+                <h1>My Sci-Fi</h1>
             </div>
 
             <div id="header_2">
@@ -38,10 +38,11 @@
                     </ul>
                 </div>
 
-                <div id="menu">
-                    <button class="button" type="button" onclick="location.href= '{% url 'homepage' %}'">MOVIES</button>
-                    <button class="button" type="button" onclick="location.href= ''">FORUM</button>
+                <div id="menu">                 
+                    <button class="button" type="button" onclick="location.href= '{% url 'homepage' %}'">HOME</button>
+                    <button class="button" type="button" onclick="location.href= '{% url 'forum:forum' %}'">FORUM</button>
                     <button class="button" type="button" onclick="location.href= '{% url 'about' %}'">ABOUT</button>
+                    <button class="button" type="button" onclick="location.href= '{% url 'movie:allmovies' %}'">MOVIES</button>
                 </div>
             </div>
         </div>
