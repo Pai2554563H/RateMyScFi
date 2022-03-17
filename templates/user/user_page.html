@@ -14,7 +14,11 @@
 
 <div id="user_photo">
                     
-    <img src="{% static 'images/test.jpg' %}" alt="Picture of test" style="width:100%;"/><br />
+    <div style="display: flex;justify-content: center">
+        <img src="{{ request.user.userprofile.picture.url }}" alt="Picture of test" style="height: 200px"/>
+
+    </div><br />
+    <p style="text-align: center">{{ request.user.username }}</p>
     
 </div>
 <div id="user_content">
@@ -28,6 +32,13 @@
         information details 
         
     </div>
+    <div style="height: 300px">
+
+    </div>
+    <div>
+        <p style="text-align: center"><a href="{% url 'user:logout' %}" style="color: white;">Logout</a></p>
+    </div>
 </div>
+
 
 {% endblock %}

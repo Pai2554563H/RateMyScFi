@@ -69,17 +69,17 @@
 
 #main_body {
 
-    border: 2px solid rgba(0, 0, 0, 0);
-    padding:30px 40px; 
-    margin: auto;
+    #border: 2px solid rgba(0, 0, 0, 0);
+    #padding:30px 40px;
+    #margin: auto;
 }
 
 #content{
 
     margin: auto;
-    width: 90%;
+    #width: 90%;
     /* keep layout do not change */
-    min-width: 900px;
+    #min-width: 900px;
 
     padding: 20px;
 
