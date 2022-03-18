@@ -1,9 +1,13 @@
-from django.shortcuts import render
+from django.contrib.auth import authenticate
+from django.shortcuts import render, redirect, reverse
 from django.views import View
+from django.contrib.auth.decorators import login_required
 from django.views.generic import ListView
+from django.utils.decorators import method_decorator
 
 from forum.models import Post
 from forum.models import PostReply
+from forum.forms import PostForm, ReplyForm
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
@@ -36,15 +40,32 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 #         context = super().get_context_data(**kwargs)
 #         return context
 
+class AddPostView(View):
+
+    @method_decorator(login_required)
+    def get(self, request):
+        user = request.user
+        form = PostForm()
+        return render(request, 'forum/add_post.html', {'form': form})
+
+    def post(self, request):
+        form = PostForm(request.POST)
+        if form.is_valid():
+            form.instance.author = request.user
+            form.save(commit=True)
+            # automatically fill the author for user when posting
+            return redirect(reverse('forum:forum'))
+        else:
+            print(form.errors)
+        return render(request, 'forum/add_post.html', {'form': form})
+
+
 class ForumView(View):
 
     def get(self, request):
         post_list = Post.objects.all().values()
         context_dict = {'posts': post_list}
         return render(request, 'forum/forum.html', context_dict)
-
-    def post(self, request):
-        pass
 
 
 class PostView(View):
@@ -57,15 +78,28 @@ class PostView(View):
         return render(request, 'forum/post.html', context=context_dict)
 
 
-    # def post(self, request):
-    #     pass
+class AddReplyView(View):
+
+    @method_decorator(login_required)
+    def get(self, request, post_id):
+        user = request.user
+        post = Post.objects.get(id=post_id)
+        form = ReplyForm()
+        context_dict = {'form': form, 'post': post}
+        return render(request, 'forum/add_reply.html', context=context_dict)
+
+    def post(self, request, post_id):
+        form = ReplyForm(request.POST)
+        post = Post.objects.get(id=post_id)
+        if form.is_valid():
+            if post:
+                reply = form.save(commit=False)
+                reply.author = request.user
+                reply.post = post
+                reply.save()
+            # automatically fill the author for user when posting
+            return redirect(reverse('forum:show_post', kwargs={'post_id': post_id}))
+        else:
+            print(form.errors)
 
 
-
-# @login_required
-# def addPost(request):
-#     return render(request, 'forum/forum.html')
-#
-#
-# def showPost(request):
-#     return render(request, 'forum/forum.html')

@@ -9,7 +9,7 @@
 
 {% block body_block %}
     <h1>Discussion Forum</h1>
-
+    <a href="{% url "forum:add_post" %}">Add New Post</a>
     <div>
         <div>
             {% if posts %}
