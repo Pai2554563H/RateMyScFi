@@ -9,6 +9,7 @@ from django.conf import settings
 
 
 
+
 # Create your views here.
 
 
@@ -31,7 +32,6 @@ def singlemovie(request, singlemovie_name_slug):
 
 
 
-# @login_required
 def add_movie(request):
     form = MovieForm()
 
