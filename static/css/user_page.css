@@ -1,13 +1,18 @@
-#user_photo{
+.user_photo{
     background-color: rgba(238, 238, 238, 0); 
     color: #ffffff;
 
     float:left;
-    width: 15%;
+    width: 25%;
     min-height: 400px;
+    text-align:center;
 
     padding: 20px;
     
+}
+
+.user_photo img{
+    width:100%;
 }
 
 #user_content{
@@ -39,4 +44,9 @@
     height: 15px;
     margin: 10px;
     float:left;
+}
+
+
+.info_content{
+    clear:both;
 }

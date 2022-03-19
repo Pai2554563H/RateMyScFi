@@ -1,0 +1,107 @@
+.forum_content{
+    background-color: rgb(238, 238, 238); 
+    color: #222831;
+
+    margin: auto;
+    width: 90%;
+    min-height: 400px;
+
+    padding: 20px;
+    
+}
+
+.forum_content h1{
+    text-align:center;
+}
+
+
+.forum_input{
+    background-color: rgb(238, 238, 238); 
+    color: #222831;
+
+    margin: auto;
+    text-align:center;
+
+    width: 40%;
+    min-height: 400px;
+
+    padding: 20px;
+}
+
+.post_topic{
+    background-color: rgb(238, 238, 238);
+    
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+
+    height: 60px;
+    padding: 20px;
+    box-shadow:0 0 10px #222831;
+
+    font-size: 40px;
+    line-height: 60px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.post_topic:hover{
+    background-color: rgb(7, 146, 155);
+    color:rgb(238, 238, 238);
+    
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+
+    height: 80px;
+    padding: 20px;
+    box-shadow:0 0 20px rgb(7, 146, 155);
+
+    font-size: 50px;
+    line-height: 80px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.post_content{
+    background-color:rgb(7, 146, 155);
+    color:rgb(238, 238, 238);
+
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+
+    padding: 20px;
+    box-shadow:0 0 10px rgb(7, 146, 155);
+
+    font-size: 20px;
+
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.post_reply{
+    background-color:rgb(238, 238, 238);
+    color: #222831;
+    
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+
+    padding: 20px;
+    box-shadow:0 0 10px #222831;
+
+    font-size: 20px;
+
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

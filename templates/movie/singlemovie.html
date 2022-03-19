@@ -14,24 +14,27 @@
 
 {% block body_block %}
 
-    <div class="header_middle"><strong>
-        {{ movie.title }}
-    </strong></div> 
-
-    <div class="movie_poster container">
-        <img src="{{ MEDIA_URL }}{{ movie.poster }}"
-        width="220"
-        height="300"
-        alt="poster"/>
+<div class="movie_poster">
+                    
+    <img src="{{ MEDIA_URL }}{{ movie.poster }}" alt="Picture of poster" /><br />
+    <h3>{{ movie.title }}</h3>
     
-    <div class="movie_info">
+</div>
+<div id="movie_info">
+    <div id="movie_header">
+        <div id="header_left"></div>
+        <div id="header_middle">MOVIE INFO</div>
+        <div id="header_right"></div>
+    </div>
+
+    <div class="info_content">
         <i>Year:</i> {{ movie.year }} <br />
         <i>Director:</i> {{ movie.director }} <br />
         <i>Rating:</i> {{ movie.rating }} <br />
         <i>Synopsis:</i> {{ movie.description }} <br />
-    </div> </div>
-        <div class="header_right">
-        <a href="{% url 'movie:allmovies' %}">Return</a> to movie list. <br /></div>
     </div>
+    <hr>
+    <a class="link" href="{% url 'movie:allmovies' %}">Return to movie list</a>
+</div>
 
 {% endblock %}

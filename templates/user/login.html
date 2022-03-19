@@ -2,7 +2,7 @@
 {% load staticfiles %}
 
 {% block css_block %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/login_sign.css' %}">
 {% endblock %}
 
 {% block title_block %}
@@ -11,18 +11,21 @@
 
 
 {% block body_block %}
-<h1 style="color: white;text-align: center">Login to Rate My Sc-Fi</h1>
-<div style="display: flex;justify-content: center">
+
+<div class="login_sign_content">
+    <h1>Login to Rate My Sc-Fi</h1>
+    <hr>
     <form id="login_form" method="post" action="{% url 'user:login' %}">
         {% csrf_token %}
-        <label for="username" style="color: white">Username: </label><input type="text" name="username" value="" size="50" id="username"/>
+        <label for="username">Username: </label><input type="text" name="username" value="" size="50" id="username"/>
         <br />
         <br>
-        <label for="password" style="color: white">Password: </label><input type="password" name="password" value="" size="50" id="password"/>
+        <label for="password">Password: </label><input type="password" name="password" value="" size="50" id="password"/>
         <br />
-        <div style="display: flex;justify-content: center">
-            <input type="submit" value="submit" style="margin-top: 10px;width: 100px" />
-        </div>
+        <br>
+            <input type="submit" value="submit"/>
+        <br />
     </form>
 </div>
+
 {% endblock %}

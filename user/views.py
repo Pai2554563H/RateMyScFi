@@ -7,10 +7,25 @@ from django.views.generic import TemplateView
 from user.froms import UserForm, UserProfileForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth import get_user_model
+from django.conf import settings
+
+# load model
+from movie.models import Movie
 
 
 def homepage(request):
-    context_dict = {'boldmessage': 'Crunchy, creamy, cookie, candy, cupcake!'}
+    
+    context_dict={}
+
+    # top 10 by rating
+    movie_list = Movie.objects.order_by('title')
+    top_10 = Movie.objects.order_by('-rating')[:10]
+
+    context_dict['movies'] = movie_list
+    context_dict['top_10'] = top_10
+    context_dict['MEDIA_URL']=settings.MEDIA_URL
+
+
     return render(request, 'user/homepage.html', context=context_dict)
 
 

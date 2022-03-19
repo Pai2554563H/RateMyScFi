@@ -26,7 +26,7 @@ class Review(models.Model):
     user = models.ForeignKey('user.User', on_delete=models.CASCADE, )
     rating = models.FloatField(default=0)
     date = models.DateField(auto_now=False, auto_now_add=True)
-    content = models.TextField()
+    content = models.TextField(default = '')
 
 
 class FavouriteList(models.Model):

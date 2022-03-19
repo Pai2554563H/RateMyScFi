@@ -7,12 +7,14 @@
     height: 150px;
     min-width: 1000px;
 
+    overflow:hidden;
+
     /* border: 1px solid rgb(255, 255, 255); */
 }
 
 #header_1{
     float:left;
-    height: 140;
+    height: 150;
     width: 200px;
 
     padding-left: 30px;
@@ -22,26 +24,32 @@
 
 #header_2{
     float:right;
-    height: 140px;
-    width: 500px;
+    height: 150px;
+    width: 600px;
 
     /* border: 1px solid rgb(255, 255, 255); */
 
 }
 
-#authentication{
+.authentication{
     float:right;
     padding:10px 30px;
     text-align:right;
     height: 50%;
 
 }
+.authentication ul{
+    display:flex;
+    justify-content: space-around;
+    width: 200px;
+}
+
 
 #menu {
     line-height:30px;
     float:right;
     text-align:center;
-    padding:5px 30px;	   
+    padding:10px 30px;	   
       
     height: 50%;
     width: 600px;
@@ -50,8 +58,13 @@
 /* button part*/
 .button {
     background-color: rgb(7, 146, 155); 
-    border: none;
-    color: white;
+    border-width: 0px;
+    border-color: rgb(7, 146, 155);
+
+    /*border-top-left-radius: 30px;
+    border-top-right-radius: 30px;*/
+
+    color: rgb(255, 255, 255);
     padding: 16px 32px;
     text-align: center;
     text-decoration: none;
@@ -62,40 +75,32 @@
     transition-duration: 0.4s;
     cursor: pointer;
 }
-.button:hover {
+.button:hover{
     background-color: #222831;
+    border-color:  #222831;
     color: white;
+
 }
 
 #main_body {
 
-    #border: 2px solid rgba(0, 0, 0, 0);
-    #padding:30px 40px;
-    #margin: auto;
+    border: 2px solid rgba(0, 0, 0, 0);
+    padding:30px 40px;
+    margin: auto;
 }
 
 #content{
 
     margin: auto;
-    #width: 90%;
+    width: 90%;
     /* keep layout do not change */
-    #min-width: 900px;
+    min-width: 900px;
 
     padding: 20px;
 
     /* border: 1px solid rgb(255, 255, 255); */
 }
 
-.button3:hover {
-    background-color: #f44336;
-    color: white;
-}
-.button4 {
-    background-color: white; 
-    color: black; 
-    border: 2px solid #3643f4;
-}
-.button4:hover {
-    background-color: #3643f4;
-    color: white;
+body{
+    background-color:#222831;
 }
