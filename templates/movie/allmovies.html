@@ -13,9 +13,12 @@
 {% block body_block %}
 <div class="moive_content">
     <h1>Movies from A to Z:</h1> 
-    <hr>
-    <a class="link" href="{% url 'movie:addmovie' %}">Add movie to the RateMySciFi Database</a>
-    <hr>
+
+    {% if user.is_authenticated %}
+        <hr>
+        <a class="link" href="{% url 'movie:addmovie' %}">Add movie to the RateMySciFi Database</a>
+        <hr>
+    {% endif %}
 
         {% if movies %}
             {% for movie in movies %}
