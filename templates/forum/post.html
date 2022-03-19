@@ -1,41 +1,48 @@
 {% extends 'user/base.html' %}
 {% load staticfiles %}
 
+{% block css_block %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/forum.css' %}">
+{% endblock %}
 
 {% block title_block %}
     Forum
 {% endblock %}
 
-
 {% block body_block %}
-    <h1>Discussion Forum</h1>
 
-    <div>
+    <div class="forum_content">
+        <h1>Discussion Forum</h1>
+        <hr>
+
         <div>
             {% if post %}
-                <div>
-                <h1>{{ post.title }}</h1>
-                </div>
-                {{ post.date }}
-                {{ post.author }}
+            <div class="post_content">
+                <h3>{{ post.title }}</h3>
+                
+                ><i>{{ post.date }}</i><br>
+                ><i>{{ post.author }}</i><br>
                 {{ post.content }}
-
-                <ul>
+            </div>
+            <hr>
                 {% for reply in replies %}
-                    <li>
-                        {{ reply.date }}
-                        {{ reply.author }}
-                        {{ reply.content }}
-                    </li>
+                <div class="post_reply">
+                    ><i>{{ reply.date }}</i><br>
+                    ><i>{{ reply.author }}</i><br>
+                    {{ reply.content }}
+                </div>
                 {% endfor %}
-            </ul>
 
             {% else %}
             <strong>The specified post does not exist.</strong>
             {% endif %}
         </div>
-    </div>
-    <div>
-    <a href="{% url 'forum:add_reply' post.id %}">Reply</a>
+
+        <hr>
+        <div>
+            <a href="{% url 'forum:add_reply' post.id %}">Reply</a><br>
+            <a href="{% url "forum:add_post" %}">Add New Post</a>
+        </div>
+
     </div>
 {% endblock %}

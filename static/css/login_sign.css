@@ -1,13 +1,13 @@
-#register_content{
+.login_sign_content{
     background-color: rgb(238, 238, 238); 
     color: #222831;
 
     margin: auto;
+    text-align:center;
+    align-items: center;
+
     width: 40%;
     min-height: 400px;
 
     padding: 20px;
-}
-label{
-    color: white
 }

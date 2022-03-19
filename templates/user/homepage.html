@@ -16,6 +16,20 @@
         TOP MOVIES
         <hr>
             <!-- show top 10 here -->
+        {% if top_10 %}
+            <ul>
+            {% for movie in top_10 %}
+                <li>
+                    <a href="{% url 'movie:singlemovie' movie.slug %}">
+                        {{ movie.title }}
+                    </a>
+                    <hr>
+                </li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <strong>There are no movies present.</strong>
+        {% endif %}
     </div>
 
     <div id="movie_list">
@@ -23,6 +37,28 @@
         <hr>
         <!-- show movies here -->
 
+        {% if movies %}
+        
+            {% for movie in movies %}
+                <div class="movie_thumbnail">
+
+                    <a href="{% url 'movie:singlemovie' movie.slug %}">
+
+                        <img src="{{ MEDIA_URL }}{{ movie.poster }}"  alt="poster"/>
+                        <br>
+                        <strong>{{ movie.title }}</strong>
+                    </a>
+                    
+                </div>
+            {% endfor %}
+            
+        {% else %}
+
+            <strong>There are no movies present.</strong>            
+            
+        {% endif %}
+
     </div>
+
 {% endblock %}
 

@@ -5,9 +5,9 @@
 <html>
     <head>
         <title>
-            Project -
+            RateMyScFi -
             {% block title_block %}
-                How to Tango with Django!
+                Hello, world!
             {% endblock %}
         </title>
 
@@ -17,7 +17,7 @@
         {% endblock %}
     </head>
     
-    <body style="background-color:#222831">
+    <body>
 
         <div id="header">
             <div id="header_1">
@@ -26,13 +26,14 @@
             </div>
 
             <div id="header_2">
-                <div id="authentication">
-                    <ul style="display:flex;justify-content: space-around;width: 200px;">
+                <div class="authentication">
+                    <ul>
                     {% if user.is_authenticated %}
-                        <li><a href="{% url 'user:profile' %}" style="color: white">Profile</a></li>
+                        <li><a href="{% url 'user:profile' %}" >Profile</a></li>
+                        <li><a href="{% url 'user:logout' %}" >Logout</a></li>
                     {% else %}
-                        <li><a href="{% url 'user:register' %}" style="color: white">SignUp</a></li>
-                        <li><a href="{% url 'user:login' %}" style="color: white">Login</a></li>
+                        <li><a href="{% url 'user:register' %}">SignUp</a></li>
+                        <li><a href="{% url 'user:login' %}" >Login</a></li>
                     {% endif %}
 
                     </ul>
@@ -40,9 +41,10 @@
 
                 <div id="menu">                 
                     <button class="button" type="button" onclick="location.href= '{% url 'homepage' %}'">HOME</button>
+                    <button class="button" type="button" onclick="location.href= '{% url 'movie:allmovies' %}'">MOVIES</button>
                     <button class="button" type="button" onclick="location.href= '{% url 'forum:forum' %}'">FORUM</button>
                     <button class="button" type="button" onclick="location.href= '{% url 'about' %}'">ABOUT</button>
-                    <button class="button" type="button" onclick="location.href= '{% url 'movie:allmovies' %}'">MOVIES</button>
+                    
                 </div>
             </div>
         </div>

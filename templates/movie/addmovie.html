@@ -9,9 +9,11 @@
 {% endblock %}
 
 {% block body_block %}
-    <h1 class="header_middle">Add a Movie to the RateMySciFi Database</h1>
-    <div class="container">
+
     <div class="add_movie_info">
+        <h1>Add a Movie to the RateMySciFi Database</h1>
+        <hr>
+
         <form id="movieform" method="post" action="{% url 'movie:addmovie' %}" enctype="multipart/form-data">
             {% csrf_token %}
             {% for hidden in form.hidden_fields %}
@@ -24,10 +26,9 @@
             {% endfor %} <br />
             <input  type="submit" name="submit" value="Add Movie" />
         </form>
-    </div>
-    </div>
-    <div class="header_right">
-    <a class="link" href="{% url 'movie:allmovies' %}">Return</a> to movie list.</div>
+        <hr>
+        <a class="link" href="{% url 'movie:allmovies' %}">Return to movie list</a>
 
+    </div>
 
 {% endblock %}

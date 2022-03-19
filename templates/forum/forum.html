@@ -1,6 +1,9 @@
 {% extends 'user/base.html' %}
 {% load staticfiles %}
 
+{% block css_block %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/forum.css' %}">
+{% endblock %}
 
 {% block title_block %}
     Forum
@@ -8,21 +11,27 @@
 
 
 {% block body_block %}
-    <h1>Discussion Forum</h1>
-    <a href="{% url "forum:add_post" %}">Add New Post</a>
-    <div>
+
+    <div class="forum_content">
+        <h1>Discussion Forum</h1>
+        <hr>
+
+        <a href="{% url "forum:add_post" %}">Add New Post</a>
+
+        <hr>
         <div>
             {% if posts %}
-                <ul>
                 {% for post in posts %}
-                    <li>
-                        <a href="/forum/{{ post.id }}">{{ post.title }}</a>
-                    </li>
+                <!-- POST TITLE -->
+                    <a href="/forum/{{ post.id }}">
+                        <div class="post_topic">
+                            {{ post.title }}
+                        </div>
+                    </a>
                 {% endfor %}
-            </ul>
-
             {% else %}
             <strong>There are no post present.</strong> {% endif %}
         </div>
+
     </div>
 {% endblock %}

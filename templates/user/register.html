@@ -2,7 +2,7 @@
 {% load staticfiles %}
 
 {% block css_block %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/register.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/login_sign.css' %}">
 {% endblock %}
 
 {% block title_block %}
@@ -11,22 +11,27 @@
 
 
 {% block body_block %}
-<h1 style="text-align: center;color: white">Register for Rate My Sc-Fi</h1>
-{% if registered %}
-<p style="text-align: center">Rate My Sc-Fi says: <strong>thank you for registering!</strong></p>
-<a href="{% url 'homepage' %}" style="text-align: center">Return to the homepage.</a><br />
-{% else %}
-<p style="text-align: center;color: white">Rate My Sc-Fi says: <strong>register here!</strong><br /></p>
-<div style="display: flex;justify-content: center">
-    <form id="user_form" method="post" action="{% url 'user:register' %}" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ user_form.as_p }}
-        {{ profile_form.as_p }}
 
-        <div style="display: flex;justify-content: center">
-            <input type="submit" name="submit" value="Register" style="width: 100px"/>
+
+<div class="login_sign_content">
+    <h1>Register for Rate My Sc-Fi</h1>
+    <hr>
+    {% if registered %}
+        <p>Rate My Sc-Fi says: <strong>thank you for registering!</strong></p>
+        <a href="{% url 'homepage' %}">Return to the homepage.</a><br />
+    {% else %}
+        <p>Rate My Sc-Fi says: <strong>register here!</strong><br /></p>
+        <div>
+            <form id="user_form" method="post" action="{% url 'user:register' %}" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ user_form.as_p }}
+                {{ profile_form.as_p }}
+
+                <br>
+                    <input type="submit" name="submit" value="Register" style="width: 100px"/>
+                <br>
+            </form>
         </div>
-    </form>
+    {% endif %}
 </div>
-{% endif %}
 {% endblock %}

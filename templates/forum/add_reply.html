@@ -1,6 +1,9 @@
 {% extends 'user/base.html' %}
 {% load staticfiles %}
 
+{% block css_block %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/forum.css' %}">
+{% endblock %}
 
 {% block title_block %}
     Forum
@@ -8,9 +11,11 @@
 
 
 {% block body_block %}
+<div class="forum_input">
     <ul>
     {% if user.is_authenticated %}
         <h1>Add New Reply</h1>
+        <hr>
     <div>
         <form id="reply_form" method="post" action="{% url 'forum:add_reply' post.id   %}">
             {% csrf_token %}
@@ -29,5 +34,5 @@
         Please log in before reply.
     {% endif %}
     </ul>
-
+</div>
 {% endblock %}

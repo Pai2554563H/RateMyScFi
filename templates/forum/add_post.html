@@ -1,6 +1,9 @@
 {% extends 'user/base.html' %}
 {% load staticfiles %}
 
+{% block css_block %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/forum.css' %}">
+{% endblock %}
 
 {% block title_block %}
     Forum
@@ -8,26 +11,32 @@
 
 
 {% block body_block %}
-    <ul>
-    {% if user.is_authenticated %}
-        <h1>Add New Post</h1>
-    <div>
-        <form id="post_form" method="post" action="{% url 'forum:add_post' %}">
-            {% csrf_token %}
-            {% for hidden in form.hidden_fields %}
-                {{ hidden }}
-            {% endfor %}
-            {% for field in form.visible_fields %}
-                {{ field.errors }} <br />
-                {{ field.help_text }} <br />
-                {{ field }} <br />
-            {% endfor %} <br />
-        <input type="submit" name="submit" value="Create New Post">
-        </form>
+
+    <div class="forum_input">
+        <ul>
+        {% if user.is_authenticated %}
+            <h1>Add New Post</h1>
+            <hr>
+        <div>
+            <form id="post_form" method="post" action="{% url 'forum:add_post' %}">
+                {% csrf_token %}
+                {% for hidden in form.hidden_fields %}
+                    {{ hidden }}
+                {% endfor %}
+                {% for field in form.visible_fields %}
+                    {{ field.errors }} <br />
+                    {{ field.help_text }} <br />
+                    {{ field }} <br />
+                {% endfor %} <br />
+            <input type="submit" name="submit" value="Create New Post">
+            </form>
+        </div>
+        {% else %}
+            Please log in before create post.
+        {% endif %}
+        </ul>
     </div>
-    {% else %}
-        Please log in before create post.
-    {% endif %}
-    </ul>
+
+
 
 {% endblock %}
