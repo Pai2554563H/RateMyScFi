@@ -15,9 +15,12 @@
     <div class="forum_content">
         <h1>Discussion Forum</h1>
         <hr>
-
-        <a href="{% url "forum:add_post" %}">Add New Post</a>
-
+        {% if user.is_authenticated %}
+            <a href="{% url "forum:add_post" %}">Add New Post</a>
+        {% else %}
+        <a href="{% url "user:login" %}">Log-in</a> or 
+        <a href="{% url "user:register" %}">register</a> to add a post or reply!
+        {% endif %}
         <hr>
         <div>
             {% if posts %}
