@@ -83,19 +83,36 @@ def populate():
                 'content': 'boring.'
                 }
                ]
+    BlankReview = []
 
     movies = {'Batman': {'title': 'The Batman',
                          'description': 'When the Riddler, a sadistic serial killer, begins murdering key political figures in Gotham, Batman is forced to investigate the city\'s hidden corruption and question his family\'s involvement.',
                          'director': 'Matt Reeves',
-                         'year':2022,
+                         'year': 2022,
                          'poster': 'posters/batman.jpg',
-                         'review': Review1},
+                         'review': Review1,
+                         'rating': 8.4, },
               'venom': {'title': 'Venom: Let There Be Carnage',
                         'description': 'Eddie Brock attempts to reignite his career by interviewing serial killer Cletus Kasady, who becomes the host of the symbiote Carnage and escapes prison after a failed execution.',
                         'director': 'Andy Serkis',
-                        'year':2021,
+                        'year': 2021,
                         'poster': 'posters/venom.jpg',
-                        'review': Review2},
+                        'review': Review2,
+                        'rating': 6.0, },
+              'adam': {'title': 'The Adam Project',
+                       'description': '"After accidentally crash-landing in 2022, time-traveling fighter pilot Adam Reed teams up with his 12-year-old self for a mission to save the future.',
+                       'director': 'Shawn Levy',
+                       'year': 2022,
+                       'poster': 'posters/adam.jpg',
+                       'review': BlankReview,
+                       'rating': 6.8, },
+              'free': {'title': 'Free Guy',
+                        'description': 'A bank teller discovers that he\'s actually an NPC inside a brutal, open world video game.',
+                        'director': 'Shawn Levy',
+                        'year': 2021,
+                        'poster': 'posters/free.jpeg',
+                       'review': BlankReview,
+                        'rating': 7.2, },
               }
 
     for user, user_data in users.items():
@@ -108,7 +125,8 @@ def populate():
             add_reply(c, find_user(r['author_name']), r['content'])
 
     for movie, movie_data in movies.items():
-        e = add_movie(movie_data['title'], movie_data['year'], movie_data['director'], movie_data['description'], movie_data['poster'])
+        e = add_movie(movie_data['title'], movie_data['year'], movie_data['director'], movie_data['description'],
+                      movie_data['poster'])
         for review in movie_data['review']:
             add_review(e, find_user(review['author_name']), review['rating'], review['content'])
 
