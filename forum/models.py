@@ -14,6 +14,7 @@ class Post(models.Model):
     content = models.TextField()
     # topic = models.TextField()
 
+
     def __str__(self):
         return self.title
 

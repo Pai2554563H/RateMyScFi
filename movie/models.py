@@ -16,6 +16,13 @@ class Movie(models.Model):
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title)
+        # test part
+        if self.rating<0:
+            self.rating=0
+        if self.year<0:
+            self.year=0
+        if len(self.title)==0:
+            self.title='unknown movie'
         super(Movie, self).save(*args, **kwargs)
 
     def __str__(self):
