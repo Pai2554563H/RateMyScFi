@@ -14,12 +14,15 @@
 
 {% block body_block %}
 
+<!-- poster and movie name of movies -->
 <div class="movie_poster">
                     
     <img src="{{ MEDIA_URL }}{{ movie.poster }}" alt="Picture of poster" /><br />
     <h3>{{ movie.title }}</h3>
     
 </div>
+
+<!-- detail of movies -->
 <div id="movie_info">
     <div id="movie_header">
         <div id="header_left"></div>

@@ -3,6 +3,7 @@
 
 {% block css_block %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/movie.css' %}">
+
 {% endblock %}
 
 
@@ -14,41 +15,58 @@
 <div class="moive_content">
     <h1>Movies from A to Z:</h1> 
 
-    {% if user.is_authenticated %}
-        <hr>
-        <a class="link" href="{% url 'movie:addmovie' %}">Add movie to the RateMySciFi Database</a>
-        <hr>
-    {% else %}
-        <hr>
-        <a href="{% url "user:login" %}">Log-in</a> or 
-        <a href="{% url "user:register" %}">register</a> to add a movie!
-        <hr>
-    {% endif %}
+    {% if movies %}
 
-        {% if movies %}
+    <!-- add new movies -->
+        {% if user.is_authenticated %}
+            <hr>
+            <a class="link" href="{% url 'movie:addmovie' %}">Add movie to the RateMySciFi Database</a>
+            <hr>
+        {% else %}
+            <hr>
+            <a href="{% url "user:login" %}">Log-in</a> or 
+            <a href="{% url "user:register" %}">register</a> to add a movie!
+            <hr>
+        {% endif %}
+
+    <!-- simple search part -->
+    <div class="search">
+        <input type="text" placeholder="input movie info" />
+    </div>
+    <br class="clear">
+    <hr>
+    <br class="clear">
+    <!-- display all movies -->
+
+        <div id="moovie_list"> 
+
             {% for movie in movies %}
+
             <div class="movie_container">
                 <div class="thumbnail">
                         <img src="{{ MEDIA_URL }}{{ movie.poster }}" alt="Picture of poster" />
                 </div>
 
                 <div class="movie_info">
-                    <p>
-                        <a class="link" href="{% url 'movie:singlemovie' movie.slug %}">{{ movie.title }} </a>
+
+                    <a class="link" href="{% url 'movie:singlemovie' movie.slug %}">{{ movie.title }} </a>
                     <br />
                     <i>Year:</i> {{ movie.year }} <br />
                     <i>Director:</i> {{ movie.director }} <br />
                     <i>Rating:</i> {{ movie.rating }} <br />
                     <i>Synopsis:</i> {{ movie.description }} <br />
-                    <br /> </p> 
+                    <br /> 
                 </div>
             </div>
-            {% endfor %}
-        {% else %}
-            <strong>There are no movies in the database yet.</strong>
-        {% endif %}
-</div>
 
+            {% endfor %}
+        </div>
+
+    {% else %}
+        <strong>There are no movies in the database yet.</strong>
+    {% endif %}
+</div>
+<script type="text/javascript" src="{% static 'js/basic search.js' %}"></script>
 {% endblock %}
 
 

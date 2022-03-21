@@ -17,12 +17,14 @@ def homepage(request):
     
     context_dict={}
 
-    # top 10 by rating
+    # top 10 order by rating
     movie_list = Movie.objects.order_by('title')
     top_10 = Movie.objects.order_by('-rating')[:10]
 
     context_dict['movies'] = movie_list
     context_dict['top_10'] = top_10
+
+    # get media url to show update image
     context_dict['MEDIA_URL']=settings.MEDIA_URL
 
 
