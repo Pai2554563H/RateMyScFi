@@ -14,10 +14,21 @@
 {% block body_block %}
 <div class="moive_content">
     <h1>Movies from A to Z:</h1> 
+
+    {% if movies %}
+
     <!-- add new movies -->
-    <hr>
-    <a class="link" href="{% url 'movie:addmovie' %}">Add movie to the RateMySciFi Database</a>
-    <hr>
+        {% if user.is_authenticated %}
+            <hr>
+            <a class="link" href="{% url 'movie:addmovie' %}">Add movie to the RateMySciFi Database</a>
+            <hr>
+        {% else %}
+            <hr>
+            <a href="{% url "user:login" %}">Log-in</a> or 
+            <a href="{% url "user:register" %}">register</a> to add a movie!
+            <hr>
+        {% endif %}
+
     <!-- simple search part -->
     <div class="search">
         <input type="text" placeholder="input movie info" />
@@ -26,9 +37,8 @@
     <hr>
     <br class="clear">
     <!-- display all movies -->
-    {% if movies %}
 
-        <div id="moovie_list">
+        <div id="moovie_list"> 
 
             {% for movie in movies %}
 

@@ -19,13 +19,13 @@
 
 
 <div class="login_sign_content">
-    <h1>Register for Rate My Sc-Fi</h1>
+    <h1>Register for Rate My Sci-Fi</h1>
     <hr>
     {% if registered %}
-        <p>Rate My Sc-Fi says: <strong>thank you for registering!</strong></p>
+        <p>Rate My Sci-Fi says: <strong>thank you for registering!</strong></p>
         <a href="{% url 'homepage' %}">Return to the homepage.</a><br />
     {% else %}
-        <p>Rate My Sc-Fi says: <strong>register here!</strong><br /></p>
+        <p>Rate My Sci-Fi says: <strong>register here!</strong><br /></p>
         <div>
             <form id="user_form" method="post" action="{% url 'user:register' %}" enctype="multipart/form-data">
                 {% csrf_token %}
