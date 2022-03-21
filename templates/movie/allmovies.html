@@ -3,6 +3,7 @@
 
 {% block css_block %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/movie.css' %}">
+
 {% endblock %}
 
 
@@ -13,34 +14,49 @@
 {% block body_block %}
 <div class="moive_content">
     <h1>Movies from A to Z:</h1> 
+    <!-- add new movies -->
     <hr>
     <a class="link" href="{% url 'movie:addmovie' %}">Add movie to the RateMySciFi Database</a>
     <hr>
+    <!-- simple search part -->
+    <div class="search">
+        <input type="text" placeholder="input movie info" />
+    </div>
+    <br class="clear">
+    <hr>
+    <br class="clear">
+    <!-- display all movies -->
+    {% if movies %}
 
-        {% if movies %}
+        <div id="moovie_list">
+
             {% for movie in movies %}
+
             <div class="movie_container">
                 <div class="thumbnail">
                         <img src="{{ MEDIA_URL }}{{ movie.poster }}" alt="Picture of poster" />
                 </div>
 
                 <div class="movie_info">
-                    <p>
-                        <a class="link" href="{% url 'movie:singlemovie' movie.slug %}">{{ movie.title }} </a>
+
+                    <a class="link" href="{% url 'movie:singlemovie' movie.slug %}">{{ movie.title }} </a>
                     <br />
                     <i>Year:</i> {{ movie.year }} <br />
                     <i>Director:</i> {{ movie.director }} <br />
                     <i>Rating:</i> {{ movie.rating }} <br />
                     <i>Synopsis:</i> {{ movie.description }} <br />
-                    <br /> </p> 
+                    <br /> 
                 </div>
             </div>
-            {% endfor %}
-        {% else %}
-            <strong>There are no movies in the database yet.</strong>
-        {% endif %}
-</div>
 
+            {% endfor %}
+        </div>
+
+    {% else %}
+        <strong>There are no movies in the database yet.</strong>
+    {% endif %}
+</div>
+<script type="text/javascript" src="{% static 'js/basic search.js' %}"></script>
 {% endblock %}
 
 

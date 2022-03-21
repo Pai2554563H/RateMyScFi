@@ -2,7 +2,12 @@
 {% load staticfiles %}
 
 {% block css_block %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/login_sign.css' %}">
+<!--bootstrap-->
+<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/login_sign.css' %}">
 {% endblock %}
 
 {% block title_block %}
@@ -31,7 +36,15 @@
                     <input type="submit" name="submit" value="Register" style="width: 100px"/>
                 <br>
             </form>
+
+            <br>
+            <button type="button" class="btn btn-warning" title="Tip for register!"  
+                    data-container="body" data-toggle="popover" data-placement="bottom" 
+                    data-content="Letters, digits and @/./+/-/_ only. (Press again to close)">
+                helper function
+            </button>
         </div>
     {% endif %}
 </div>
+<script type="text/javascript" src="{% static 'js/helper function.js' %}"></script>
 {% endblock %}

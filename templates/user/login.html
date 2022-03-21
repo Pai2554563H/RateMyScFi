@@ -2,6 +2,12 @@
 {% load staticfiles %}
 
 {% block css_block %}
+
+    <!--bootstrap-->
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
     <link rel="stylesheet" type="text/css" href="{% static 'css/login_sign.css' %}">
 {% endblock %}
 
@@ -17,15 +23,24 @@
     <hr>
     <form id="login_form" method="post" action="{% url 'user:login' %}">
         {% csrf_token %}
-        <label for="username">Username: </label><input type="text" name="username" value="" size="50" id="username"/>
-        <br />
+        <label for="username">Username: </label><input type="text" name="username" value="" id="username"/>
+        
         <br>
-        <label for="password">Password: </label><input type="password" name="password" value="" size="50" id="password"/>
-        <br />
+        <br>
+        <label for="password">Password: </label><input type="password" name="password" value="" id="password"/>
+        
+        <br>
         <br>
             <input type="submit" value="submit"/>
-        <br />
+        
     </form>
-</div>
 
+    <br>
+    <button type="button" class="btn btn-warning" title="Tip for login!"  
+			data-container="body" data-toggle="popover" data-placement="bottom" 
+			data-content="Letters, digits and @/./+/-/_ only. (Press again to close)">
+		helper function
+	</button>
+</div>
+<script type="text/javascript" src="{% static 'js/helper function.js' %}"></script>
 {% endblock %}

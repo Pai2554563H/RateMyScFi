@@ -12,17 +12,7 @@
 
 .movie_poster img{width: 100%;}
 
-
-#movie_info{
-    background-color: rgba(238, 238, 238, 0); 
-    color: #ffffff;
-
-    float:right;
-    width: 65%;
-
-    padding: 20px;   
-}
-
+/* add movie info design*/
 .add_movie_info{
     background-color: rgb(238, 238, 238); 
     color: #222831;
@@ -51,18 +41,26 @@
 .moive_content h1{
     text-align:center;
 }
-.movie_container{
-    display: flex;
 
-    
+/*show movies in all movie page*/
+.movie_container{
 
     height: 200px;
     font-size: 20px;
 
-    text-overflow: ellipsis;
+
     box-shadow:0 0 5px #222831;
     margin-top: 10px;
     margin-bottom: 10px;
+}
+#movie_info{
+    background-color: rgba(238, 238, 238, 0); 
+    color: #ffffff;
+
+    float:right;
+    width: 65%;
+
+    padding: 20px;   
 }
 .thumbnail{
     height: 100%;
@@ -78,11 +76,12 @@
     width: 150px;
 }
 
-
 .link {
     color: rgb(7, 146, 155);
 }
 
+
+/*header of movie in single movie*/
 #header_left{
     background-color: rgb(7, 146, 155); 
     width: 15px;
@@ -106,4 +105,34 @@
 .info_content{
     clear:both;
     min-width: 100%;
+}
+
+.clear{
+    clear: both;
+}
+
+/*simple search part*/
+.search{
+
+    text-align:center;
+}
+/*switch input bar*/
+.search input{
+
+    width: 200px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.08);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.08);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s
+}
+.search input:focus{
+    border-color: rgb(7, 146, 155);
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.08),0 0 8px rgba(7, 146, 155,0.6);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.08),0 0 8px rgba(7, 146, 155,.6);
 }

@@ -89,6 +89,7 @@
     margin: auto;
 }
 
+/* content body*/
 #content{
 
     margin: auto;
@@ -100,7 +101,11 @@
 
     /* border: 1px solid rgb(255, 255, 255); */
 }
-
+/*
 body{
-    background-color:#222831;
+    background-color:#222831 !important;
+}*/
+.body_BackGround{
+
+    background-color:#222831 !important;
 }
